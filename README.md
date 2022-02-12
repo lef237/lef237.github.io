@@ -2,4 +2,4 @@
 
 LEFのホームページ
 
-リンク→
+リンク→https://lef237.github.io/
