@@ -27,6 +27,15 @@ export default function Index() {
             Remix Docs
           </a>
         </li>
+        <li>
+          <a
+            target="_blank"
+            href="https://lef237.hatenablog.com/"
+            rel="noreferrer"
+          >
+            LEFログ
+          </a>
+        </li>
       </ul>
     </div>
   );
