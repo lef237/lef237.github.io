@@ -10,7 +10,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to lef237's homepage!</h1>
+      <h1>Welcome to lef237&apos;s homepage!</h1>
       <h2>This site is made by Remix (SPA Mode)</h2>
       <ul>
         <li>
