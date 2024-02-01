@@ -37,6 +37,8 @@ export default function Index() {
           </a>
         </li>
       </ul>
+      <img src="/lefzou.jpg" alt="lefzou" width="500" height="500" />
+      <p>Brave New Elephant</p>
     </div>
   );
 }
