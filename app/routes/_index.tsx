@@ -14,17 +14,13 @@ export default function Index() {
       <h2>This site is made by Remix (SPA Mode)</h2>
       <ul>
         <li>
-          <a
-            target="_blank"
-            href="https://remix.run/future/spa-mode"
-            rel="noreferrer"
-          >
-            SPA Mode Guide
+          <a target="_blank" href="https://github.com/lef237" rel="noreferrer">
+            GitHub
           </a>
         </li>
         <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
+          <a target="_blank" href="https://twitter.com/lef237" rel="noreferrer">
+            Twitter
           </a>
         </li>
         <li>
@@ -33,7 +29,7 @@ export default function Index() {
             href="https://lef237.hatenablog.com/"
             rel="noreferrer"
           >
-            LEFログ
+            LEF LOG (Blog)
           </a>
         </li>
       </ul>
