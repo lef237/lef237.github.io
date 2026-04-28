@@ -47,8 +47,13 @@ import zennSvg from '../components/icons/zenn.svg?raw';
 
 			<section class="about" aria-labelledby="about-title">
 				<h2 id="about-title" data-i18n="aboutTitle">About</h2>
-				<p data-i18n="aboutBody">
-					ここには自己紹介を入れる予定です。いまは仮テキストとして、興味のある技術や日々の記録、作ったものへの導線を少しずつ整えていきます。
+				<p data-i18n="aboutBodyLead">
+					Web開発からゲーム制作、OSS活動、記事の執筆、登壇まで、幅広く取り組んでいます。
+				</p>
+				<p>
+					<span data-i18n="aboutBodyBeforeLink">詳しい自己紹介は</span>
+					<a class="inline-link" href="https://example.com/about" target="_blank" rel="noreferrer" data-i18n="aboutLinkLabel">こちら</a>
+					<span data-i18n="aboutBodyAfterLink">からご覧ください。SMSは確認頻度が低いため、ご連絡はメールでお願いいたします。</span>
 				</p>
 			</section>
 		</section>
@@ -307,6 +312,24 @@ import zennSvg from '../components/icons/zenn.svg?raw';
 		color: #4f5d74;
 	}
 
+	.about p + p {
+		margin-top: 6px;
+	}
+
+	.inline-link {
+		color: #3f4f69;
+		font-weight: 600;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+		text-decoration-color: #9eb0cb;
+		transition: color 0.18s ease, text-decoration-color 0.18s ease;
+	}
+
+	.inline-link:hover {
+		color: #2f3b52;
+		text-decoration-color: #6f86aa;
+	}
+
 	@media (max-width: 560px) {
 		.page {
 			padding: 16px;
@@ -333,14 +356,18 @@ import zennSvg from '../components/icons/zenn.svg?raw';
 		ja: {
 			lead: '静かに作って、長く育てるためのホームページ。',
 			aboutTitle: 'About',
-			aboutBody:
-				'ここには自己紹介を入れる予定です。いまは仮テキストとして、興味のある技術や日々の記録、作ったものへの導線を少しずつ整えていきます。',
+			aboutBodyLead: 'Web開発からゲーム制作、OSS活動、記事の執筆、登壇まで、幅広く取り組んでいます。',
+			aboutBodyBeforeLink: '詳しい自己紹介は',
+			aboutLinkLabel: 'こちら',
+			aboutBodyAfterLink: 'からご覧ください。SNSのDMは見落とすことがあるため、ご連絡はメールでお願いいたします。',
 		},
 		en: {
 			lead: 'A quiet homepage built to grow over time.',
 			aboutTitle: 'About',
-			aboutBody:
-				'This is a placeholder for my profile. I plan to add my interests, notes from daily work, and links to projects little by little.',
+			aboutBodyLead: 'I work across web development, game development, OSS contributions, writing articles, and giving talks.',
+			aboutBodyBeforeLink: 'For a detailed profile, please see',
+			aboutLinkLabel: 'here',
+			aboutBodyAfterLink: '. I may miss messages on social media, so please contact me by email.',
 		},
 	};
 
