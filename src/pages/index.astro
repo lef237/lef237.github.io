@@ -5,6 +5,12 @@ import Layout from '../layouts/Layout.astro';
 import githubSvg from '../components/icons/github.svg?raw';
 import xSvg from '../components/icons/x.svg?raw';
 import hatenablogSvg from '../components/icons/hatenablog.svg?raw';
+import aboutSvg from '../components/icons/about.svg?raw';
+import emailSvg from '../components/icons/email.svg?raw';
+import noteSvg from '../components/icons/note.svg?raw';
+import speakerdeckSvg from '../components/icons/speakerdeck.svg?raw';
+import youtubeSvg from '../components/icons/youtube.svg?raw';
+import zennSvg from '../components/icons/zenn.svg?raw';
 ---
 
 <Layout>
@@ -27,17 +33,17 @@ import hatenablogSvg from '../components/icons/hatenablog.svg?raw';
 				</div>
 			</div>
 
-			<nav aria-label="Social links" class="links icon-links">
-				<a href="https://github.com/lef237" target="_blank" rel="noreferrer" aria-label="GitHub">
-					<Fragment set:html={githubSvg} />
-				</a>
-				<a href="https://x.com/lef237" target="_blank" rel="noreferrer" aria-label="X">
-					<Fragment set:html={xSvg} />
-				</a>
-				<a href="https://lef237.hatenablog.com/" target="_blank" rel="noreferrer" aria-label="Blog">
-					<Fragment set:html={hatenablogSvg} />
-				</a>
-			</nav>
+			<div class="links icon-links icon-showcase" aria-label="All available SVG icons">
+				<span class="icon-item icon-item-email" role="img" aria-label="Email"><Fragment set:html={emailSvg} /></span>
+				<a class="icon-item" href="https://github.com/lef237" target="_blank" rel="noreferrer" aria-label="GitHub"><Fragment set:html={githubSvg} /></a>
+				<span class="icon-item icon-item-about" role="img" aria-label="About"><Fragment set:html={aboutSvg} /></span>
+				<a class="icon-item icon-item-x" href="https://x.com/lef237" target="_blank" rel="noreferrer" aria-label="X"><Fragment set:html={xSvg} /></a>
+				<span class="icon-item icon-item-zenn" role="img" aria-label="Zenn"><Fragment set:html={zennSvg} /></span>
+				<span class="icon-item icon-item-speakerdeck" role="img" aria-label="Speaker Deck"><Fragment set:html={speakerdeckSvg} /></span>
+				<span class="icon-item icon-item-note" role="img" aria-label="note"><Fragment set:html={noteSvg} /></span>
+				<a class="icon-item" href="https://lef237.hatenablog.com/" target="_blank" rel="noreferrer" aria-label="Hatena Blog"><Fragment set:html={hatenablogSvg} /></a>
+				<span class="icon-item" role="img" aria-label="YouTube"><Fragment set:html={youtubeSvg} /></span>
+			</div>
 
 			<section class="about" aria-labelledby="about-title">
 				<h2 id="about-title" data-i18n="aboutTitle">About</h2>
@@ -166,37 +172,109 @@ import hatenablogSvg from '../components/icons/hatenablog.svg?raw';
 		gap: 12px;
 	}
 
-	.links a {
+	.icon-showcase {
+		margin-top: 12px;
+	}
+
+	.links a,
+	.icon-item {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		text-decoration: none;
 		width: 42px;
 		height: 42px;
+		overflow: hidden;
 		color: #33415c;
 		background: #f3f7fd;
 		border: 1px solid #e1e9f6;
 		border-radius: 50%;
 		padding: 0;
+	}
+
+	.links a {
+		text-decoration: none;
 		transition: all 0.18s ease;
 	}
 
-	.links a :global(svg) {
-		width: 18px;
-		height: 18px;
+	.links a :global(svg),
+	.icon-item :global(svg) {
+		display: block;
+		width: 18px !important;
+		height: 18px !important;
+		max-width: 18px;
+		max-height: 18px;
+		flex: 0 0 18px;
 		fill: currentColor;
 	}
 
 	/* Override hardcoded fill attributes inside SVG files */
 	.links a :global(svg path),
 	.links a :global(svg circle),
-	.links a :global(svg rect) {
+	.links a :global(svg rect),
+	.icon-item:not(.icon-item-email) :global(svg path),
+	.icon-item:not(.icon-item-email) :global(svg circle),
+	.icon-item:not(.icon-item-email) :global(svg rect) {
 		fill: currentColor;
 	}
 
 	.links a:hover {
 		background: #ecf2fb;
 		transform: translateY(-1px);
+	}
+
+	/* email.svg is stroke-based, so disable forced fills for this icon */
+	.icon-item-email :global(svg) {
+		width: 20px !important;
+		height: 20px !important;
+		max-width: 20px;
+		max-height: 20px;
+		flex-basis: 20px;
+		fill: none;
+	}
+
+	.icon-item-email :global(svg path),
+	.icon-item-email :global(svg rect) {
+		fill: none !important;
+		stroke: currentColor !important;
+	}
+
+	/* note icon appears optically larger, so reduce by 1px */
+	.icon-item-note :global(svg) {
+		width: 13px !important;
+		height: 13px !important;
+		max-width: 13px;
+		max-height: 13px;
+		flex-basis: 13px;
+	}
+
+	.icon-item-about :global(svg) {
+		width: 20px !important;
+		height: 20px !important;
+		max-width: 20px;
+		max-height: 20px;
+		flex-basis: 20px;
+	}
+
+	/* Fine-tune per-brand optical size */
+	.icon-item-x :global(svg) {
+		transform: scale(0.82);
+		transform-origin: center;
+	}
+
+	.icon-item-zenn :global(svg) {
+		width: 16px !important;
+		height: 16px !important;
+		max-width: 16px;
+		max-height: 16px;
+		flex-basis: 16px;
+	}
+
+	.icon-item-speakerdeck :global(svg) {
+		width: 19px !important;
+		height: 19px !important;
+		max-width: 19px;
+		max-height: 19px;
+		flex-basis: 19px;
 	}
 
 
