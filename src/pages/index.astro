@@ -1,11 +1,153 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+	<main class="page">
+		<section class="card">
+			<div class="profile">
+				<img src="/lefzou.jpg" alt="Profile photo" width="132" height="132" loading="eager" />
+				<div>
+					<p class="eyebrow">Personal Website</p>
+					<h1>lef237</h1>
+					<p class="lead">静かに作って、長く育てるためのホームページ。</p>
+				</div>
+			</div>
+
+			<nav aria-label="Social links" class="links">
+				<a href="https://github.com/lef237" target="_blank" rel="noreferrer">GitHub</a>
+				<a href="https://x.com/lef237" target="_blank" rel="noreferrer">X</a>
+				<a href="https://lef237.hatenablog.com/" target="_blank" rel="noreferrer">Blog</a>
+			</nav>
+
+			<section class="about" aria-labelledby="about-title">
+				<h2 id="about-title">About</h2>
+				<p>
+					ここには自己紹介を入れる予定です。いまは仮テキストとして、興味のある技術や日々の記録、
+					作ったものへの導線を少しずつ整えていきます。
+				</p>
+			</section>
+		</section>
+	</main>
 </Layout>
+
+<style>
+	:root {
+		color-scheme: light;
+	}
+
+	.page {
+		min-height: 100vh;
+		display: grid;
+		place-items: center;
+		padding: 28px;
+		background:
+			radial-gradient(circle at 15% 15%, #f4eee3 0 34%, transparent 46%),
+			radial-gradient(circle at 90% 80%, #e4edf8 0 26%, transparent 41%),
+			#f8f8f7;
+		font-family: 'Avenir Next', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+		color: #2e2a26;
+	}
+
+	.card {
+		width: min(760px, 100%);
+		background: rgba(255, 255, 255, 0.88);
+		border: 1px solid #e6dfd6;
+		border-radius: 20px;
+		padding: 28px;
+		box-shadow: 0 12px 40px rgba(45, 37, 29, 0.08);
+		backdrop-filter: blur(2px);
+	}
+
+	.profile {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 18px;
+		align-items: center;
+	}
+
+	.profile img {
+		border-radius: 999px;
+		object-fit: cover;
+		border: 2px solid #efe7dc;
+	}
+
+	.eyebrow {
+		margin: 0;
+		font-size: 0.78rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: #857469;
+	}
+
+	h1 {
+		margin: 6px 0 8px;
+		font-size: clamp(1.8rem, 4vw, 2.4rem);
+		line-height: 1.1;
+	}
+
+	.lead {
+		margin: 0;
+		font-size: 1rem;
+		line-height: 1.7;
+		color: #5d524a;
+	}
+
+	.links {
+		display: flex;
+		gap: 10px;
+		margin-top: 22px;
+		flex-wrap: wrap;
+	}
+
+	.links a {
+		display: inline-block;
+		text-decoration: none;
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: #3f352f;
+		background: #f4eee7;
+		border: 1px solid #e4dbcf;
+		border-radius: 999px;
+		padding: 8px 14px;
+		transition: all 0.18s ease;
+	}
+
+	.links a:hover {
+		background: #ece4da;
+		transform: translateY(-1px);
+	}
+
+	.about {
+		margin-top: 24px;
+		padding-top: 20px;
+		border-top: 1px solid #ece6dd;
+	}
+
+	h2 {
+		margin: 0 0 10px;
+		font-size: 1.08rem;
+	}
+
+	.about p {
+		margin: 0;
+		line-height: 1.85;
+		color: #544943;
+	}
+
+	@media (max-width: 560px) {
+		.page {
+			padding: 16px;
+		}
+
+		.card {
+			padding: 20px;
+			border-radius: 16px;
+		}
+
+		.profile {
+			grid-template-columns: 1fr;
+			justify-items: start;
+		}
+	}
+</style>
