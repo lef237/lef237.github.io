@@ -1,51 +1,46 @@
-# lef237's homepage
+# Astro Starter Kit: Basics
 
-Deployed at https://lef237.github.io/
-
-## templates/spa
-
-This template leverages [Remix SPA Mode](https://remix.run/docs/en/main/future/spa-mode) and the [Remix Vite Plugin](https://remix.run/docs/en/main/future/vite) to build your app as a Single-Page Application using [Client Data](https://remix.run/docs/en/main/guides/client-data) for all of your data loads and mutations.
-
-## Setup
-
-```shellscript
-npx create-remix@latest --template remix-run/remix/templates/spa
+```sh
+pnpm create astro@latest -- --template basics
 ```
 
-## Development
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-You can develop your SPA app just like you would a normal Remix app, via:
+## 🚀 Project Structure
 
-```shellscript
-npm run dev
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src
+│   ├── assets
+│   │   └── astro.svg
+│   ├── components
+│   │   └── Welcome.astro
+│   ├── layouts
+│   │   └── Layout.astro
+│   └── pages
+│       └── index.astro
+└── package.json
 ```
 
-## Production
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
-When you are ready to build a production version of your app, `npm run build` will generate your assets and an `index.html` for the SPA.
+## 🧞 Commands
 
-```shellscript
-npm run build
-```
+All commands are run from the root of the project, from a terminal:
 
-### Preview
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `pnpm install`             | Installs dependencies                            |
+| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
+| `pnpm build`           | Build your production site to `./dist/`          |
+| `pnpm preview`         | Preview your build locally, before deploying     |
+| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `pnpm astro -- --help` | Get help using the Astro CLI                     |
 
-You can preview the build locally with [vite preview](https://vitejs.dev/guide/cli#vite-preview) to serve all routes via the single `index.html` file:
+## 👀 Want to learn more?
 
-```shellscript
-npm run preview
-```
-
-> [!IMPORTANT]
->
-> `vite preview` is not designed for use as a production server
-
-### Deployment
-
-You can then serve your app from any HTTP server of your choosing. The server should be configured to serve multiple paths from a single root `/index.html` file (commonly called "SPA fallback"). Other steps may be required if the server doesn't directly support this functionality.
-
-For a simple example, you could use [sirv-cli](https://www.npmjs.com/package/sirv-cli):
-
-```shellscript
-npx sirv-cli build/client/ --single
-```
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
