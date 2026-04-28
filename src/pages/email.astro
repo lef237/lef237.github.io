@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<main class="page">
+		<section class="card">
+			<h1>Email</h1>
+			<p class="contact-line">📫 How to contact: <span class="email-inline">lef237k5☆gmail.com</span></p>
+			<p class="instruction">Please replace ☆ with @</p>
+			<p class="back"><a href="/">Back to home</a></p>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	.page {
+		min-height: 100vh;
+		display: grid;
+		place-items: center;
+		padding: 28px;
+		background: #f6f9fe;
+		font-family: 'Avenir Next', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+		color: #273143;
+	}
+
+	.card {
+		width: min(640px, 100%);
+		background: #fff;
+		border: 1px solid #e7eef8;
+		border-radius: 20px;
+		padding: 28px;
+		box-shadow: 0 2px 14px rgba(28, 54, 94, 0.05);
+	}
+
+	h1 {
+		margin: 0 0 14px;
+		font-size: clamp(1.6rem, 4vw, 2rem);
+	}
+
+	.contact-line {
+		margin: 0 0 8px;
+		font-size: 1rem;
+		line-height: 1.75;
+	}
+
+	.email-inline {
+		display: inline-block;
+		padding: 1px 8px;
+		border-radius: 6px;
+		background: #eef4ff;
+		border: 1px solid #dfe8f8;
+		font-weight: 700;
+		font-size: 1.08em;
+		letter-spacing: 0.01em;
+		user-select: all;
+	}
+
+	.instruction {
+		margin: 0;
+		color: #5b6780;
+		font-size: 0.95rem;
+	}
+
+	.back {
+		margin-top: 20px;
+	}
+
+	.back a {
+		color: #3f4f69;
+		font-weight: 600;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+		text-decoration-color: #9eb0cb;
+	}
+
+	@media (max-width: 560px) {
+		.page {
+			padding-top: calc(14px + env(safe-area-inset-top));
+			padding-right: calc(12px + env(safe-area-inset-right));
+			padding-bottom: calc(14px + env(safe-area-inset-bottom));
+			padding-left: calc(12px + env(safe-area-inset-left));
+		}
+
+		.card {
+			padding: 18px;
+			border-radius: 16px;
+		}
+	}
+</style>
