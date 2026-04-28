@@ -11,6 +11,7 @@ import noteSvg from '../components/icons/note.svg?raw';
 import speakerdeckSvg from '../components/icons/speakerdeck.svg?raw';
 import youtubeSvg from '../components/icons/youtube.svg?raw';
 import zennSvg from '../components/icons/zenn.svg?raw';
+import devtoSvg from '../components/icons/devdotto.svg?raw';
 
 const dictionary = {
 	ja: {
@@ -30,6 +31,7 @@ const dictionary = {
 		speakerdeckLabel: 'Speaker Deck',
 		noteLabel: 'note',
 		hatenaLabel: 'はてなブログ',
+		devtoLabel: 'dev.to',
 		youtubeLabel: 'YouTube',
 	},
 	en: {
@@ -49,6 +51,7 @@ const dictionary = {
 		speakerdeckLabel: 'Speaker Deck',
 		noteLabel: 'note',
 		hatenaLabel: 'Hatena Blog',
+		devtoLabel: 'dev.to',
 		youtubeLabel: 'YouTube',
 	},
 };
@@ -83,6 +86,7 @@ const dictionary = {
 				<a class="icon-item icon-item-speakerdeck" href="https://speakerdeck.com/lef237" target="_blank" rel="noreferrer" data-i18n-aria="speakerdeckLabel" aria-label={dictionary.ja.speakerdeckLabel}><Fragment set:html={speakerdeckSvg} /></a>
 				<a class="icon-item icon-item-note" href="https://note.com/lef237" target="_blank" rel="noreferrer" data-i18n-aria="noteLabel" aria-label={dictionary.ja.noteLabel}><Fragment set:html={noteSvg} /></a>
 				<a class="icon-item" href="https://lef237.hatenablog.com/" target="_blank" rel="noreferrer" data-i18n-aria="hatenaLabel" aria-label={dictionary.ja.hatenaLabel}><Fragment set:html={hatenablogSvg} /></a>
+				<a class="icon-item icon-item-devto" href="https://dev.to/lef237" target="_blank" rel="noreferrer" data-i18n-aria="devtoLabel" aria-label={dictionary.ja.devtoLabel}><Fragment set:html={devtoSvg} /></a>
 				<a class="icon-item" href="https://www.youtube.com/@lefzou-channel" target="_blank" rel="noreferrer" data-i18n-aria="youtubeLabel" aria-label={dictionary.ja.youtubeLabel}><Fragment set:html={youtubeSvg} /></a>
 			</div>
 
@@ -236,7 +240,7 @@ const dictionary = {
 		justify-content: center;
 		width: 42px;
 		height: 42px;
-		overflow: hidden;
+		overflow: visible;
 		color: #33415c;
 		background: #f3f7fd;
 		border: 1px solid #e1e9f6;
@@ -291,21 +295,25 @@ const dictionary = {
 		stroke: currentColor !important;
 	}
 
-	/* note icon appears optically larger, so reduce by 1px */
+	/* note icon appears optically larger, so shrink it with scale instead of fixed px sizing */
 	.icon-item-note :global(svg) {
-		width: 13px !important;
-		height: 13px !important;
-		max-width: 13px;
-		max-height: 13px;
-		flex-basis: 13px;
+		width: 18px !important;
+		height: 18px !important;
+		max-width: 18px;
+		max-height: 18px;
+		flex-basis: 18px;
+		transform: scale(0.66);
+		transform-origin: center;
 	}
 
 	.icon-item-about :global(svg) {
-		width: 20px !important;
-		height: 20px !important;
-		max-width: 20px;
-		max-height: 20px;
-		flex-basis: 20px;
+		width: 26px !important;
+		height: 26px !important;
+		max-width: 26px;
+		max-height: 26px;
+		flex-basis: 26px;
+		transform: scale(1.2);
+		transform-origin: center;
 	}
 
 	/* Fine-tune per-brand optical size */
@@ -320,6 +328,8 @@ const dictionary = {
 		max-width: 16px;
 		max-height: 16px;
 		flex-basis: 16px;
+		transform: scale(0.88);
+		transform-origin: center;
 	}
 
 	.icon-item-speakerdeck :global(svg) {
@@ -330,6 +340,13 @@ const dictionary = {
 		flex-basis: 19px;
 	}
 
+	.icon-item-devto :global(svg) {
+		width: 23px !important;
+		height: 23px !important;
+		max-width: 23px;
+		max-height: 23px;
+		flex-basis: 23px;
+	}
 
 	.sr-only {
 		position: absolute;
