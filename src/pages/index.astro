@@ -1,30 +1,49 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+// Social brand icons are based on Simple Icons: https://simpleicons.org
+import githubSvg from '../components/icons/github.svg?raw';
+import xSvg from '../components/icons/x.svg?raw';
+import hatenablogSvg from '../components/icons/hatenablog.svg?raw';
 ---
 
 <Layout>
 	<main class="page">
 		<section class="card">
-			<div class="profile">
-				<img src="/lefzou.jpg" alt="Profile photo" width="132" height="132" loading="eager" />
-				<div>
-					<p class="eyebrow">Personal Website</p>
-					<h1>lef237</h1>
-					<p class="lead">静かに作って、長く育てるためのホームページ。</p>
+			<div class="topbar">
+				<p class="current-lang" id="current-lang">JP</p>
+				<div class="lang-switch" role="group" aria-label="Language switcher">
+					<button id="lang-ja" class="lang-btn is-active" type="button">日本語</button>
+					<button id="lang-en" class="lang-btn" type="button">English</button>
 				</div>
 			</div>
 
-			<nav aria-label="Social links" class="links">
-				<a href="https://github.com/lef237" target="_blank" rel="noreferrer">GitHub</a>
-				<a href="https://x.com/lef237" target="_blank" rel="noreferrer">X</a>
-				<a href="https://lef237.hatenablog.com/" target="_blank" rel="noreferrer">Blog</a>
+			<div class="profile">
+				<img src="/lefzou.jpg" alt="Profile photo" width="132" height="132" loading="eager" />
+				<div>
+					<p class="eyebrow" data-i18n="eyebrow">Homepage</p>
+					<h1>LEF</h1>
+					<p class="id">@lef237</p>
+					<p class="lead" data-i18n="lead">静かに作って、長く育てるためのホームページ。</p>
+				</div>
+			</div>
+
+			<nav aria-label="Social links" class="links icon-links">
+				<a href="https://github.com/lef237" target="_blank" rel="noreferrer" aria-label="GitHub">
+					<Fragment set:html={githubSvg} />
+				</a>
+				<a href="https://x.com/lef237" target="_blank" rel="noreferrer" aria-label="X">
+					<Fragment set:html={xSvg} />
+				</a>
+				<a href="https://lef237.hatenablog.com/" target="_blank" rel="noreferrer" aria-label="Blog">
+					<Fragment set:html={hatenablogSvg} />
+				</a>
 			</nav>
 
 			<section class="about" aria-labelledby="about-title">
-				<h2 id="about-title">About</h2>
-				<p>
-					ここには自己紹介を入れる予定です。いまは仮テキストとして、興味のある技術や日々の記録、
-					作ったものへの導線を少しずつ整えていきます。
+				<h2 id="about-title" data-i18n="aboutTitle">About</h2>
+				<p data-i18n="aboutBody">
+					ここには自己紹介を入れる予定です。いまは仮テキストとして、興味のある技術や日々の記録、作ったものへの導線を少しずつ整えていきます。
 				</p>
 			</section>
 		</section>
@@ -59,6 +78,47 @@ import Layout from '../layouts/Layout.astro';
 		backdrop-filter: blur(2px);
 	}
 
+	.topbar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 14px;
+	}
+
+	.current-lang {
+		margin: 0;
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		color: #7b6d62;
+	}
+
+	.lang-switch {
+		display: inline-flex;
+		gap: 6px;
+		padding: 3px;
+		background: #f2ebe2;
+		border: 1px solid #e4dbcf;
+		border-radius: 999px;
+	}
+
+	.lang-btn {
+		border: 0;
+		background: transparent;
+		border-radius: 999px;
+		padding: 4px 10px;
+		font-size: 0.78rem;
+		font-weight: 600;
+		color: #6f6157;
+		cursor: pointer;
+	}
+
+	.lang-btn.is-active {
+		background: #fff;
+		color: #3f352f;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+	}
+
 	.profile {
 		display: grid;
 		grid-template-columns: auto 1fr;
@@ -86,6 +146,13 @@ import Layout from '../layouts/Layout.astro';
 		line-height: 1.1;
 	}
 
+	.id {
+		margin: 0;
+		font-size: 0.92rem;
+		font-weight: 600;
+		color: #7a6a5d;
+	}
+
 	.lead {
 		margin: 0;
 		font-size: 1rem;
@@ -100,22 +167,54 @@ import Layout from '../layouts/Layout.astro';
 		flex-wrap: wrap;
 	}
 
+	.icon-links {
+		gap: 12px;
+	}
+
 	.links a {
-		display: inline-block;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 		text-decoration: none;
-		font-size: 0.95rem;
-		font-weight: 600;
+		width: 42px;
+		height: 42px;
 		color: #3f352f;
 		background: #f4eee7;
 		border: 1px solid #e4dbcf;
-		border-radius: 999px;
-		padding: 8px 14px;
+		border-radius: 50%;
+		padding: 0;
 		transition: all 0.18s ease;
+	}
+
+	.links a :global(svg) {
+		width: 18px;
+		height: 18px;
+		fill: currentColor;
+	}
+
+	/* Override hardcoded fill attributes inside SVG files */
+	.links a :global(svg path),
+	.links a :global(svg circle),
+	.links a :global(svg rect) {
+		fill: currentColor;
 	}
 
 	.links a:hover {
 		background: #ece4da;
 		transform: translateY(-1px);
+	}
+
+
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
 	}
 
 	.about {
@@ -149,5 +248,56 @@ import Layout from '../layouts/Layout.astro';
 			grid-template-columns: 1fr;
 			justify-items: start;
 		}
+
+		.topbar {
+			margin-bottom: 16px;
+		}
 	}
 </style>
+
+<script is:inline>
+	const dictionary = {
+		ja: {
+			eyebrow: 'ホームページ',
+			lead: '静かに作って、長く育てるためのホームページ。',
+			aboutTitle: 'About',
+			aboutBody:
+				'ここには自己紹介を入れる予定です。いまは仮テキストとして、興味のある技術や日々の記録、作ったものへの導線を少しずつ整えていきます。',
+		},
+		en: {
+			eyebrow: 'Homepage',
+			lead: 'A quiet homepage built to grow over time.',
+			aboutTitle: 'About',
+			aboutBody:
+				'This is a placeholder for my profile. I plan to add my interests, notes from daily work, and links to projects little by little.',
+		},
+	};
+
+	const setLanguage = (lang) => {
+		const t = dictionary[lang] || dictionary.ja;
+		document.querySelectorAll('[data-i18n]').forEach((el) => {
+			const key = el.getAttribute('data-i18n');
+			if (!key) return;
+			el.textContent = t[key];
+		});
+
+		const current = document.getElementById('current-lang');
+		if (current) current.textContent = lang.toUpperCase();
+
+		const jaButton = document.getElementById('lang-ja');
+		const enButton = document.getElementById('lang-en');
+		if (jaButton && enButton) {
+			jaButton.classList.toggle('is-active', lang === 'ja');
+			enButton.classList.toggle('is-active', lang === 'en');
+		}
+
+		document.documentElement.lang = lang;
+		localStorage.setItem('lang', lang);
+	};
+
+	const stored = localStorage.getItem('lang');
+	setLanguage(stored === 'en' ? 'en' : 'ja');
+
+	document.getElementById('lang-ja')?.addEventListener('click', () => setLanguage('ja'));
+	document.getElementById('lang-en')?.addEventListener('click', () => setLanguage('en'));
+</script>
