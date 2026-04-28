@@ -11,6 +11,25 @@ import noteSvg from '../components/icons/note.svg?raw';
 import speakerdeckSvg from '../components/icons/speakerdeck.svg?raw';
 import youtubeSvg from '../components/icons/youtube.svg?raw';
 import zennSvg from '../components/icons/zenn.svg?raw';
+
+const dictionary = {
+	ja: {
+		lead: '静かに作って、長く育てるためのホームページ。',
+		aboutTitle: 'About',
+		aboutBodyLead: 'Web開発からゲーム制作、OSS活動、記事の執筆、登壇まで、幅広く取り組んでいます。',
+		aboutBodyBeforeLink: '詳しい自己紹介は',
+		aboutLinkLabel: 'こちら',
+		aboutBodyAfterLink: 'からご覧ください。SNSのDMは見落とすことがあるため、ご連絡はメールでお願いいたします。',
+	},
+	en: {
+		lead: 'A quiet homepage built to grow over time.',
+		aboutTitle: 'About',
+		aboutBodyLead: 'I work across web development, game development, OSS contributions, writing articles, and giving talks.',
+		aboutBodyBeforeLink: 'For a detailed profile, please see',
+		aboutLinkLabel: 'here',
+		aboutBodyAfterLink: '. I may miss messages on social media, so please contact me by email.',
+	},
+};
 ---
 
 <Layout>
@@ -29,7 +48,7 @@ import zennSvg from '../components/icons/zenn.svg?raw';
 				<div>
 					<h1>LEF</h1>
 					<p class="id">@lef237</p>
-					<p class="lead" data-i18n="lead">静かに作って、長く育てるためのホームページ。</p>
+					<p class="lead" data-i18n="lead">{dictionary.ja.lead}</p>
 				</div>
 			</div>
 
@@ -46,14 +65,14 @@ import zennSvg from '../components/icons/zenn.svg?raw';
 			</div>
 
 			<section class="about" aria-labelledby="about-title">
-				<h2 id="about-title" data-i18n="aboutTitle">About</h2>
+				<h2 id="about-title" data-i18n="aboutTitle">{dictionary.ja.aboutTitle}</h2>
 				<p data-i18n="aboutBodyLead">
-					Web開発からゲーム制作、OSS活動、記事の執筆、登壇まで、幅広く取り組んでいます。
+					{dictionary.ja.aboutBodyLead}
 				</p>
 				<p>
-					<span data-i18n="aboutBodyBeforeLink">詳しい自己紹介は</span>
-					<a class="inline-link" href="https://example.com/about" target="_blank" rel="noreferrer" data-i18n="aboutLinkLabel">こちら</a>
-					<span data-i18n="aboutBodyAfterLink">からご覧ください。SMSは確認頻度が低いため、ご連絡はメールでお願いいたします。</span>
+					<span data-i18n="aboutBodyBeforeLink">{dictionary.ja.aboutBodyBeforeLink}</span>
+					<a class="inline-link" href="https://example.com/about" target="_blank" rel="noreferrer" data-i18n="aboutLinkLabel">{dictionary.ja.aboutLinkLabel}</a>
+					<span data-i18n="aboutBodyAfterLink">{dictionary.ja.aboutBodyAfterLink}</span>
 				</p>
 			</section>
 		</section>
@@ -351,25 +370,7 @@ import zennSvg from '../components/icons/zenn.svg?raw';
 	}
 </style>
 
-<script is:inline>
-	const dictionary = {
-		ja: {
-			lead: '静かに作って、長く育てるためのホームページ。',
-			aboutTitle: 'About',
-			aboutBodyLead: 'Web開発からゲーム制作、OSS活動、記事の執筆、登壇まで、幅広く取り組んでいます。',
-			aboutBodyBeforeLink: '詳しい自己紹介は',
-			aboutLinkLabel: 'こちら',
-			aboutBodyAfterLink: 'からご覧ください。SNSのDMは見落とすことがあるため、ご連絡はメールでお願いいたします。',
-		},
-		en: {
-			lead: 'A quiet homepage built to grow over time.',
-			aboutTitle: 'About',
-			aboutBodyLead: 'I work across web development, game development, OSS contributions, writing articles, and giving talks.',
-			aboutBodyBeforeLink: 'For a detailed profile, please see',
-			aboutLinkLabel: 'here',
-			aboutBodyAfterLink: '. I may miss messages on social media, so please contact me by email.',
-		},
-	};
+<script is:inline define:vars={{ dictionary }}>
 
 	const setLanguage = (lang) => {
 		const t = dictionary[lang] || dictionary.ja;
