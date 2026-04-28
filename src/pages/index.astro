@@ -20,6 +20,17 @@ const dictionary = {
 		aboutBodyBeforeLink: '詳しい自己紹介は',
 		aboutLinkLabel: 'こちら',
 		aboutBodyAfterLink: 'からご覧ください。SNSのDMは見落とすことがあるため、ご連絡はメールでお願いいたします。',
+		languageSwitcherLabel: '言語切り替え',
+		iconShowcaseLabel: '利用可能なリンク一覧',
+		emailLabel: 'メール',
+		githubLabel: 'GitHub',
+		aboutIconLabel: 'About',
+		xLabel: 'X',
+		zennLabel: 'Zenn',
+		speakerdeckLabel: 'Speaker Deck',
+		noteLabel: 'note',
+		hatenaLabel: 'はてなブログ',
+		youtubeLabel: 'YouTube',
 	},
 	en: {
 		lead: 'Brave New Elephant',
@@ -28,6 +39,17 @@ const dictionary = {
 		aboutBodyBeforeLink: 'For a detailed profile, please see',
 		aboutLinkLabel: 'here',
 		aboutBodyAfterLink: '. I may miss messages on social media, so please contact me by email.',
+		languageSwitcherLabel: 'Language switcher',
+		iconShowcaseLabel: 'Available links',
+		emailLabel: 'Email',
+		githubLabel: 'GitHub',
+		aboutIconLabel: 'About',
+		xLabel: 'X',
+		zennLabel: 'Zenn',
+		speakerdeckLabel: 'Speaker Deck',
+		noteLabel: 'note',
+		hatenaLabel: 'Hatena Blog',
+		youtubeLabel: 'YouTube',
 	},
 };
 ---
@@ -37,9 +59,9 @@ const dictionary = {
 		<section class="card">
 			<div class="topbar">
 				<p class="current-lang" id="current-lang">JP</p>
-				<div class="lang-switch" role="group" aria-label="Language switcher">
-					<button id="lang-ja" class="lang-btn is-active" type="button">日本語</button>
-					<button id="lang-en" class="lang-btn" type="button">English</button>
+				<div class="lang-switch" role="group" data-i18n-aria="languageSwitcherLabel" aria-label={dictionary.ja.languageSwitcherLabel}>
+					<button id="lang-ja" class="lang-btn is-active" type="button" aria-pressed="true">日本語</button>
+					<button id="lang-en" class="lang-btn" type="button" aria-pressed="false">English</button>
 				</div>
 			</div>
 
@@ -52,16 +74,16 @@ const dictionary = {
 				</div>
 			</div>
 
-			<div class="links icon-links icon-showcase" aria-label="All available SVG icons">
-				<span class="icon-item icon-item-email" role="img" aria-label="Email"><Fragment set:html={emailSvg} /></span>
-				<a class="icon-item" href="https://github.com/lef237" target="_blank" rel="noreferrer" aria-label="GitHub"><Fragment set:html={githubSvg} /></a>
-				<span class="icon-item icon-item-about" role="img" aria-label="About"><Fragment set:html={aboutSvg} /></span>
-				<a class="icon-item icon-item-x" href="https://x.com/lef237" target="_blank" rel="noreferrer" aria-label="X"><Fragment set:html={xSvg} /></a>
-				<span class="icon-item icon-item-zenn" role="img" aria-label="Zenn"><Fragment set:html={zennSvg} /></span>
-				<span class="icon-item icon-item-speakerdeck" role="img" aria-label="Speaker Deck"><Fragment set:html={speakerdeckSvg} /></span>
-				<span class="icon-item icon-item-note" role="img" aria-label="note"><Fragment set:html={noteSvg} /></span>
-				<a class="icon-item" href="https://lef237.hatenablog.com/" target="_blank" rel="noreferrer" aria-label="Hatena Blog"><Fragment set:html={hatenablogSvg} /></a>
-				<span class="icon-item" role="img" aria-label="YouTube"><Fragment set:html={youtubeSvg} /></span>
+			<div class="links icon-links icon-showcase" role="group" data-i18n-aria="iconShowcaseLabel" aria-label={dictionary.ja.iconShowcaseLabel}>
+				<span class="icon-item icon-item-email" role="img" data-i18n-aria="emailLabel" aria-label={dictionary.ja.emailLabel}><Fragment set:html={emailSvg} /></span>
+				<a class="icon-item" href="https://github.com/lef237" target="_blank" rel="noreferrer" data-i18n-aria="githubLabel" aria-label={dictionary.ja.githubLabel}><Fragment set:html={githubSvg} /></a>
+				<span class="icon-item icon-item-about" role="img" data-i18n-aria="aboutIconLabel" aria-label={dictionary.ja.aboutIconLabel}><Fragment set:html={aboutSvg} /></span>
+				<a class="icon-item icon-item-x" href="https://x.com/lef237" target="_blank" rel="noreferrer" data-i18n-aria="xLabel" aria-label={dictionary.ja.xLabel}><Fragment set:html={xSvg} /></a>
+				<span class="icon-item icon-item-zenn" role="img" data-i18n-aria="zennLabel" aria-label={dictionary.ja.zennLabel}><Fragment set:html={zennSvg} /></span>
+				<span class="icon-item icon-item-speakerdeck" role="img" data-i18n-aria="speakerdeckLabel" aria-label={dictionary.ja.speakerdeckLabel}><Fragment set:html={speakerdeckSvg} /></span>
+				<span class="icon-item icon-item-note" role="img" data-i18n-aria="noteLabel" aria-label={dictionary.ja.noteLabel}><Fragment set:html={noteSvg} /></span>
+				<a class="icon-item" href="https://lef237.hatenablog.com/" target="_blank" rel="noreferrer" data-i18n-aria="hatenaLabel" aria-label={dictionary.ja.hatenaLabel}><Fragment set:html={hatenablogSvg} /></a>
+				<span class="icon-item" role="img" data-i18n-aria="youtubeLabel" aria-label={dictionary.ja.youtubeLabel}><Fragment set:html={youtubeSvg} /></span>
 			</div>
 
 			<section class="about" aria-labelledby="about-title">
@@ -495,6 +517,12 @@ const dictionary = {
 			el.textContent = t[key];
 		});
 
+		document.querySelectorAll('[data-i18n-aria]').forEach((el) => {
+			const key = el.getAttribute('data-i18n-aria');
+			if (!key) return;
+			el.setAttribute('aria-label', t[key]);
+		});
+
 		const current = document.getElementById('current-lang');
 		if (current) current.textContent = lang.toUpperCase();
 
@@ -503,13 +531,24 @@ const dictionary = {
 		if (jaButton && enButton) {
 			jaButton.classList.toggle('is-active', lang === 'ja');
 			enButton.classList.toggle('is-active', lang === 'en');
+			jaButton.setAttribute('aria-pressed', String(lang === 'ja'));
+			enButton.setAttribute('aria-pressed', String(lang === 'en'));
 		}
 
 		document.documentElement.lang = lang;
-		localStorage.setItem('lang', lang);
+		try {
+			localStorage.setItem('lang', lang);
+		} catch {
+			// Ignore storage failures such as private browsing restrictions.
+		}
 	};
 
-	const stored = localStorage.getItem('lang');
+	let stored = null;
+	try {
+		stored = localStorage.getItem('lang');
+	} catch {
+		stored = null;
+	}
 	setLanguage(stored === 'en' ? 'en' : 'ja');
 
 	document.getElementById('lang-ja')?.addEventListener('click', () => setLanguage('ja'));
