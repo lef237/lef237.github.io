@@ -21,7 +21,6 @@ import hatenablogSvg from '../components/icons/hatenablog.svg?raw';
 			<div class="profile">
 				<img src="/lefzou.jpg" alt="Profile photo" width="132" height="132" loading="eager" />
 				<div>
-					<p class="eyebrow" data-i18n="eyebrow">Homepage</p>
 					<h1>LEF</h1>
 					<p class="id">@lef237</p>
 					<p class="lead" data-i18n="lead">静かに作って、長く育てるためのホームページ。</p>
@@ -141,13 +140,13 @@ import hatenablogSvg from '../components/icons/hatenablog.svg?raw';
 	}
 
 	h1 {
-		margin: 6px 0 8px;
+		margin: 4px 0 2px;
 		font-size: clamp(1.8rem, 4vw, 2.4rem);
 		line-height: 1.1;
 	}
 
 	.id {
-		margin: 0;
+		margin: 0 0 14px;
 		font-size: 0.92rem;
 		font-weight: 600;
 		color: #7a6a5d;
@@ -258,14 +257,12 @@ import hatenablogSvg from '../components/icons/hatenablog.svg?raw';
 <script is:inline>
 	const dictionary = {
 		ja: {
-			eyebrow: 'ホームページ',
 			lead: '静かに作って、長く育てるためのホームページ。',
 			aboutTitle: 'About',
 			aboutBody:
 				'ここには自己紹介を入れる予定です。いまは仮テキストとして、興味のある技術や日々の記録、作ったものへの導線を少しずつ整えていきます。',
 		},
 		en: {
-			eyebrow: 'Homepage',
 			lead: 'A quiet homepage built to grow over time.',
 			aboutTitle: 'About',
 			aboutBody:
