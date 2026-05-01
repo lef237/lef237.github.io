@@ -58,6 +58,25 @@ const dictionary = {
 ---
 
 <Layout>
+	<script is:inline>
+		{
+			const detectLang = () => {
+				try {
+					const stored = localStorage.getItem('lang');
+					if (stored === 'ja' || stored === 'en') return stored;
+				} catch {}
+				const langs = navigator.languages?.length ? navigator.languages : [navigator.language];
+				return langs.some((l) => typeof l === 'string' && l.toLowerCase().startsWith('ja')) ? 'ja' : 'en';
+			};
+			try {
+				const lang = detectLang();
+				window.__initialLang = lang;
+				document.documentElement.lang = lang;
+				if (lang === 'ja') document.documentElement.classList.add('lang-pending');
+			} catch {}
+			setTimeout(() => document.documentElement.classList.remove('lang-pending'), 600);
+		}
+	</script>
 	<main class="page">
 		<section class="card">
 			<div class="topbar">
@@ -561,13 +580,9 @@ const dictionary = {
 		}
 	};
 
-	let stored = null;
-	try {
-		stored = localStorage.getItem('lang');
-	} catch {
-		stored = null;
-	}
-	setLanguage(stored === 'ja' ? 'ja' : 'en');
+	const initial = window.__initialLang === 'ja' ? 'ja' : 'en';
+	setLanguage(initial);
+	document.documentElement.classList.remove('lang-pending');
 
 	document.getElementById('lang-ja')?.addEventListener('click', () => setLanguage('ja'));
 	document.getElementById('lang-en')?.addEventListener('click', () => setLanguage('en'));
