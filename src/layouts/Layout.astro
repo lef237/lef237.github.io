@@ -1,12 +1,20 @@
+---
+const {
+	title = "lef237's homepage",
+	description = "Welcome to lef237's homepage!",
+	lang = 'en',
+} = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<meta name="description" content="Welcome to lef237's homepage!" />
+		<meta name="description" content={description} />
 		<meta name="generator" content={Astro.generator} />
-		<title>lef237's homepage</title>
+		<title>{title}</title>
 		<style>
 			html.lang-pending body { visibility: hidden; }
 		</style>

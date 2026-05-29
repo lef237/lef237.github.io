@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Content, frontmatter } from '../content/about.md';
+
+const title = frontmatter.title ?? 'About | lef237';
+const description = frontmatter.description ?? 'lef237 profile';
+---
+
+<Layout title={title} description={description} lang="ja">
+	<main class="page">
+		<article class="card prose">
+			<Content />
+			<p class="back"><a href="/">Back to home</a></p>
+		</article>
+	</main>
+</Layout>
+
+<style>
+	.page {
+		min-height: 100vh;
+		padding: 28px;
+		background: #f6f9fe;
+		font-family: 'Avenir Next', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+		color: #273143;
+	}
+
+	.card {
+		width: min(840px, 100%);
+		box-sizing: border-box;
+		margin: 0 auto;
+		background: #fff;
+		border: 1px solid #e7eef8;
+		border-radius: 20px;
+		padding: 32px;
+		box-shadow: 0 2px 14px rgba(28, 54, 94, 0.05);
+	}
+
+	.prose :global(h1),
+	.prose :global(h2),
+	.prose :global(h3) {
+		color: #273143;
+		line-height: 1.25;
+	}
+
+	.prose :global(h1) {
+		margin: 0 0 24px;
+		font-size: clamp(1.9rem, 4vw, 2.5rem);
+	}
+
+	.prose :global(h2) {
+		margin: 34px 0 12px;
+		padding-top: 22px;
+		border-top: 1px solid #ecf1f9;
+		font-size: 1.2rem;
+	}
+
+	.prose :global(h3) {
+		margin: 24px 0 8px;
+		font-size: 1.05rem;
+	}
+
+	.prose :global(p),
+	.prose :global(li) {
+		line-height: 1.85;
+		color: #4f5d74;
+	}
+
+	.prose :global(p) {
+		margin: 0 0 12px;
+	}
+
+	.prose :global(ul),
+	.prose :global(ol) {
+		margin: 0 0 18px;
+		padding-left: 1.35rem;
+	}
+
+	.prose :global(li + li) {
+		margin-top: 8px;
+	}
+
+	.prose :global(li > ul),
+	.prose :global(li > ol) {
+		margin-top: 8px;
+		margin-bottom: 10px;
+	}
+
+	.prose :global(a),
+	.back a {
+		color: #3f4f69;
+		font-weight: 600;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+		text-decoration-color: #9eb0cb;
+		overflow-wrap: anywhere;
+		transition: color 0.18s ease, text-decoration-color 0.18s ease;
+	}
+
+	.prose :global(a:hover),
+	.back a:hover {
+		color: #2f3b52;
+		text-decoration-color: #6f86aa;
+	}
+
+	.prose :global(code) {
+		display: inline-block;
+		padding: 1px 7px;
+		border-radius: 6px;
+		background: #eef4ff;
+		border: 1px solid #dfe8f8;
+		color: #273143;
+		font-size: 0.95em;
+		overflow-wrap: anywhere;
+	}
+
+	.prose :global(hr) {
+		border: 0;
+		border-top: 1px solid #ecf1f9;
+		margin: 32px 0;
+	}
+
+	.back {
+		margin: 28px 0 0;
+		padding-top: 20px;
+		border-top: 1px solid #ecf1f9;
+	}
+
+	@media (max-width: 560px) {
+		.page {
+			padding-top: calc(14px + env(safe-area-inset-top));
+			padding-right: calc(12px + env(safe-area-inset-right));
+			padding-bottom: calc(14px + env(safe-area-inset-bottom));
+			padding-left: calc(12px + env(safe-area-inset-left));
+		}
+
+		.card {
+			padding: 20px;
+			border-radius: 16px;
+		}
+
+		.prose :global(h2) {
+			margin-top: 28px;
+			padding-top: 18px;
+		}
+	}
+</style>
