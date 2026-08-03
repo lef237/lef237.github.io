@@ -87,6 +87,10 @@ Godotを使ったゲーム開発もしています。最近は3Dグラフィッ�
 - [gst: Read-only Git status visualizer](https://github.com/lef237/gst)
   - Go言語で実装した、Gitのステータスを視覚的に表示できるTUIツールです
   - patch用のdiffを簡単にコピーできる機能もあり、便利でオススメです
+- [costsee](https://github.com/lef237/costsee)
+  - Coding Agent 3種類（Codex, Claude, OpenCode）の利用制限をまとめて確認できるツールです
+  - ターミナルに表示できて、自動で使用量が更新されるため便利です
+  - 紹介記事（英語）は[こちら](https://dev.to/lef237/bringing-coding-agent-usage-limits-together-on-one-screen-with-costsee-4c6l)
 
 ## OSS
 
