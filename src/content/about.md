@@ -91,6 +91,9 @@ Godotを使ったゲーム開発もしています。最近は3Dグラフィッ�
   - Coding Agent 3種類（Codex, Claude, OpenCode）の利用制限をまとめて確認できるツールです
   - ターミナルに表示できて、自動で使用量が更新されるため便利です
   - 紹介記事（英語）は[こちら](https://dev.to/lef237/bringing-coding-agent-usage-limits-together-on-one-screen-with-costsee-4c6l)
+- [agent-sync](https://github.com/lef237/agent-sync)
+  - Codex 用に配置した `AGENTS.md` や `.agents/skills/*` を、ワンコマンドで Claude Code にも適用する同期ツールです
+  - dry-runの機能もあり、安全に使いつつ手間を省けます
 
 ## OSS
 
