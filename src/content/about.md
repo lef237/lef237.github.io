@@ -175,6 +175,6 @@ Godotを使ってゲーム開発をしています。進捗はnoteなどで公�
 
 ## Community
 
-プログラミングスピーチ会の会長を務めています。現在は休会中。
+プログラミングスピーチ会の会長を務めています。
 
 - [プログラミングスピーチ会 - connpass](https://programming-speech.connpass.com/)
