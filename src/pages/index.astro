@@ -11,7 +11,7 @@ import noteSvg from '../components/icons/note.svg?raw';
 import speakerdeckSvg from '../components/icons/speakerdeck.svg?raw';
 import youtubeSvg from '../components/icons/youtube.svg?raw';
 import zennSvg from '../components/icons/zenn.svg?raw';
-import devtoSvg from '../components/icons/devdotto.svg?raw';
+import hashnodeSvg from '../components/icons/hashnode.svg?raw';
 
 const dictionary = {
 	ja: {
@@ -31,7 +31,7 @@ const dictionary = {
 		speakerdeckLabel: 'Speaker Deck',
 		noteLabel: 'note',
 		hatenaLabel: 'はてなブログ',
-		devtoLabel: 'dev.to',
+		hashnodeLabel: 'Hashnode',
 		youtubeLabel: 'YouTube',
 	},
 	en: {
@@ -51,7 +51,7 @@ const dictionary = {
 		speakerdeckLabel: 'Speaker Deck',
 		noteLabel: 'note',
 		hatenaLabel: 'Hatena Blog',
-		devtoLabel: 'dev.to',
+		hashnodeLabel: 'Hashnode',
 		youtubeLabel: 'YouTube',
 	},
 };
@@ -105,7 +105,7 @@ const dictionary = {
 				<a class="icon-item icon-item-speakerdeck" href="https://speakerdeck.com/lef237" target="_blank" rel="noreferrer" data-i18n-aria="speakerdeckLabel" aria-label={dictionary.en.speakerdeckLabel}><Fragment set:html={speakerdeckSvg} /></a>
 				<a class="icon-item icon-item-note" href="https://note.com/lef237" target="_blank" rel="noreferrer" data-i18n-aria="noteLabel" aria-label={dictionary.en.noteLabel}><Fragment set:html={noteSvg} /></a>
 				<a class="icon-item" href="https://lef237.hatenablog.com/" target="_blank" rel="noreferrer" data-i18n-aria="hatenaLabel" aria-label={dictionary.en.hatenaLabel}><Fragment set:html={hatenablogSvg} /></a>
-				<a class="icon-item icon-item-devto" href="https://dev.to/lef237" target="_blank" rel="noreferrer" data-i18n-aria="devtoLabel" aria-label={dictionary.en.devtoLabel}><Fragment set:html={devtoSvg} /></a>
+				<a class="icon-item" href="https://lef237.hashnode.dev/" target="_blank" rel="noreferrer" data-i18n-aria="hashnodeLabel" aria-label={dictionary.en.hashnodeLabel}><Fragment set:html={hashnodeSvg} /></a>
 				<a class="icon-item" href="https://www.youtube.com/@lefzou-channel" target="_blank" rel="noreferrer" data-i18n-aria="youtubeLabel" aria-label={dictionary.en.youtubeLabel}><Fragment set:html={youtubeSvg} /></a>
 			</div>
 
@@ -358,14 +358,6 @@ const dictionary = {
 		max-width: 19px;
 		max-height: 19px;
 		flex-basis: 19px;
-	}
-
-	.icon-item-devto :global(svg) {
-		width: 23px !important;
-		height: 23px !important;
-		max-width: 23px;
-		max-height: 23px;
-		flex-basis: 23px;
 	}
 
 	.sr-only {
