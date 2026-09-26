@@ -31,7 +31,7 @@ Godotを使ったゲーム開発もしています。最近は3Dグラフィッ�
 
 ## Softwares
 
-開発したアプリ・ライブラリを紹介します。公開中の作品のみです。
+開発したアプリ・ライブラリを紹介します。公開中の作品から一部を抜粋しています。
 
 - [引用箱 QuoteList](https://quotelist.fly.dev/)
   - 色んな引用を楽しめるようにしました。また、RailsとReactの組み合わせも工夫しました
@@ -45,9 +45,6 @@ Godotを使ったゲーム開発もしています。最近は3Dグラフィッ�
 - [go-wikipedia-popular-articles](https://github.com/lef237/go-wikipedia-popular-articles)
   - Wikipediaにはランキングのページがないので、ランキングを表示するCLIツールを作りました
   - 記事を選択すると、概要とリンクが表示されるつくりになっています
-- [文字数カウントアプリ](https://char-count-lac.vercel.app/)
-  - スマホでも使いやすいデザインを目指しました
-  - GitHubは[こちら](https://github.com/lef237/char-count)
 - [GitHub Prevent Thumbs Down Click](https://chromewebstore.google.com/detail/github-prevent-thumbs-dow/nmggnnjdmonldppjempcpgkpblodkolk)
   - GitHubは[こちら](https://github.com/lef237/github-prevent-thumbs-down-click)
   - 詳細は[こちら](https://lef237.hatenablog.com/entry/2024/04/26/113048)
@@ -61,8 +58,6 @@ Godotを使ったゲーム開発もしています。最近は3Dグラフィッ�
 - [MindfulDo](https://mindfuldo.vercel.app/)
   - Stay FocusでSuper Coolなタスク管理アプリです（？）
   - 詳細は[こちら](https://lef237.hatenablog.com/entry/2025/01/01/213522)
-- [gin-mcs](https://github.com/lef237/gin-mcs)
-  - GoとGinで作成したWeb APIの雛形です。簡単なCRUD機能をつけています。Model, Controller, Serviceの3層構造です。Routerやテストコード付き
 - [inline_partial | RubyGems](https://rubygems.org/gems/inline_partial)
   - Railsでプライベートなインラインpartialを実現できるGemです
   - 以前書いた[この記事](https://lef237.hatenablog.com/entry/2025/06/22/115045)をベースにしつつ、partialに渡るオブジェクトが単数でも複数でも対応できるようにしました
@@ -74,7 +69,6 @@ Godotを使ったゲーム開発もしています。最近は3Dグラフィッ�
 - [One-Time Editor: A lightweight scratchpad that lives one shortcut away](https://github.com/lef237/one-time-editor)
   - ショートカットキーですぐに呼び出せるエディタです
   - チャットの送信前などに気軽に使えるため、誤送信を防げて便利です
-  - GitHubは[こちら](https://github.com/lef237/one-time-editor)
   - 詳細は[こちら](https://lef237.hatenablog.com/entry/2026/02/15/110305)
 - [Muga: A quiet programming language](https://github.com/lef237/muga)
   - オリジナルのプログラミング言語を作っています
@@ -97,7 +91,7 @@ Godotを使ったゲーム開発もしています。最近は3Dグラフィッ�
 
 ## OSS
 
-OSS活動を一部抜粋して並べています。
+OSS活動の一部を抜粋して並べています。
 
 - GitHub - fjordllc/bootcamp
   - [lef237 Commits · fjordllc/bootcamp · GitHub](https://github.com/fjordllc/bootcamp/commits?author=lef237)
@@ -115,8 +109,6 @@ OSS活動を一部抜粋して並べています。
   - [Release v7.0.0: ECMAScript 2025サポート、イテレータとジェネレータ · asciidwango/js-primer · GitHub](https://github.com/asciidwango/js-primer/releases/tag/v7.0.0)
 - GitHub - withastro/docs: Astro documentation
   - [i18n(ja): update installation steps in `1-setup/2.mdx` by lef237 · Pull Request #12054 · withastro/docs · GitHub](https://github.com/withastro/docs/pull/12054)
-
-その他諸々etc…
 
 ## Presentations
 
