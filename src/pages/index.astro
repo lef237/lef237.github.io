@@ -58,6 +58,21 @@ const dictionary = {
 		youtubeLabel: 'YouTube',
 	},
 };
+
+// size: rendered icon size in px, tuned per icon so they look optically balanced
+const links = [
+	{ href: '/email', labelKey: 'emailLabel', svg: emailSvg, size: 15 },
+	{ href: 'https://github.com/lef237', labelKey: 'githubLabel', svg: githubSvg, size: 18 },
+	{ href: '/about', labelKey: 'aboutIconLabel', svg: aboutSvg, size: 17 },
+	{ href: 'https://leftland.cc/', labelKey: 'leftlandLabel', svg: leftlandSvg, size: 15 },
+	{ href: 'https://x.com/lef237', labelKey: 'xLabel', svg: xSvg, size: 15 },
+	{ href: 'https://zenn.dev/lef237', labelKey: 'zennLabel', svg: zennSvg, size: 16 },
+	{ href: 'https://speakerdeck.com/lef237', labelKey: 'speakerdeckLabel', svg: speakerdeckSvg, size: 18 },
+	{ href: 'https://note.com/lef237', labelKey: 'noteLabel', svg: noteSvg, size: 12 },
+	{ href: 'https://lef237.hatenablog.com/', labelKey: 'hatenaLabel', svg: hatenablogSvg, size: 18 },
+	{ href: 'https://lef237.hashnode.dev/', labelKey: 'hashnodeLabel', svg: hashnodeSvg, size: 18 },
+	{ href: 'https://www.youtube.com/@lefzou-channel', labelKey: 'youtubeLabel', svg: youtubeSvg, size: 18 },
+] as const;
 ---
 
 <Layout>
@@ -100,17 +115,12 @@ const dictionary = {
 			</div>
 
 			<div class="links icon-links icon-showcase" role="group" data-i18n-aria="iconShowcaseLabel" aria-label={dictionary.en.iconShowcaseLabel}>
-				<a class="icon-item icon-item-email" href="/email" data-i18n-aria="emailLabel" aria-label={dictionary.en.emailLabel}><Fragment set:html={emailSvg} /></a>
-				<a class="icon-item" href="https://github.com/lef237" target="_blank" rel="noreferrer" data-i18n-aria="githubLabel" aria-label={dictionary.en.githubLabel}><Fragment set:html={githubSvg} /></a>
-				<a class="icon-item icon-item-about" href="/about" data-i18n-aria="aboutIconLabel" aria-label={dictionary.en.aboutIconLabel}><Fragment set:html={aboutSvg} /></a>
-				<a class="icon-item icon-item-leftland" href="https://leftland.cc/" target="_blank" rel="noreferrer" data-i18n-aria="leftlandLabel" aria-label={dictionary.en.leftlandLabel}><Fragment set:html={leftlandSvg} /></a>
-				<a class="icon-item icon-item-x" href="https://x.com/lef237" target="_blank" rel="noreferrer" data-i18n-aria="xLabel" aria-label={dictionary.en.xLabel}><Fragment set:html={xSvg} /></a>
-				<a class="icon-item icon-item-zenn" href="https://zenn.dev/lef237" target="_blank" rel="noreferrer" data-i18n-aria="zennLabel" aria-label={dictionary.en.zennLabel}><Fragment set:html={zennSvg} /></a>
-				<a class="icon-item icon-item-speakerdeck" href="https://speakerdeck.com/lef237" target="_blank" rel="noreferrer" data-i18n-aria="speakerdeckLabel" aria-label={dictionary.en.speakerdeckLabel}><Fragment set:html={speakerdeckSvg} /></a>
-				<a class="icon-item icon-item-note" href="https://note.com/lef237" target="_blank" rel="noreferrer" data-i18n-aria="noteLabel" aria-label={dictionary.en.noteLabel}><Fragment set:html={noteSvg} /></a>
-				<a class="icon-item" href="https://lef237.hatenablog.com/" target="_blank" rel="noreferrer" data-i18n-aria="hatenaLabel" aria-label={dictionary.en.hatenaLabel}><Fragment set:html={hatenablogSvg} /></a>
-				<a class="icon-item" href="https://lef237.hashnode.dev/" target="_blank" rel="noreferrer" data-i18n-aria="hashnodeLabel" aria-label={dictionary.en.hashnodeLabel}><Fragment set:html={hashnodeSvg} /></a>
-				<a class="icon-item" href="https://www.youtube.com/@lefzou-channel" target="_blank" rel="noreferrer" data-i18n-aria="youtubeLabel" aria-label={dictionary.en.youtubeLabel}><Fragment set:html={youtubeSvg} /></a>
+				{links.map(({ href, labelKey, svg, size }) => {
+					const isExternal = href.startsWith('http');
+					return (
+						<a class="icon-item" href={href} target={isExternal ? '_blank' : undefined} rel={isExternal ? 'noreferrer' : undefined} data-i18n-aria={labelKey} aria-label={dictionary.en[labelKey]} style={`--icon-size: ${size}px`}><Fragment set:html={svg} /></a>
+					);
+				})}
 			</div>
 
 			<section class="about" aria-labelledby="about-title">
@@ -276,24 +286,11 @@ const dictionary = {
 		transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.18s ease, box-shadow 0.24s ease;
 	}
 
-	.links a :global(svg),
+	/* SVG viewBoxes are trimmed to the glyph, so --icon-size is the visible size */
 	.icon-item :global(svg) {
 		display: block;
-		width: 18px !important;
-		height: 18px !important;
-		max-width: 18px;
-		max-height: 18px;
-		flex: 0 0 18px;
-		fill: currentColor;
-	}
-
-	/* Override hardcoded fill attributes inside SVG files */
-	.links a :global(svg path),
-	.links a :global(svg circle),
-	.links a :global(svg rect),
-	.icon-item:not(.icon-item-email) :global(svg path),
-	.icon-item:not(.icon-item-email) :global(svg circle),
-	.icon-item:not(.icon-item-email) :global(svg rect) {
+		width: var(--icon-size);
+		height: var(--icon-size);
 		fill: currentColor;
 	}
 
@@ -301,76 +298,6 @@ const dictionary = {
 		background: #ecf2fb;
 		transform: translateY(-3px) scale(1.04);
 		box-shadow: 0 6px 14px rgba(28, 54, 94, 0.12);
-	}
-
-	/* email.svg is stroke-based, so disable forced fills for this icon */
-	.icon-item-email :global(svg) {
-		width: 20px !important;
-		height: 20px !important;
-		max-width: 20px;
-		max-height: 20px;
-		flex-basis: 20px;
-		fill: none;
-	}
-
-	.icon-item-email :global(svg path),
-	.icon-item-email :global(svg rect) {
-		fill: none !important;
-		stroke: currentColor !important;
-	}
-
-	/* note icon appears optically larger, so shrink it with scale instead of fixed px sizing */
-	.icon-item-note :global(svg) {
-		width: 18px !important;
-		height: 18px !important;
-		max-width: 18px;
-		max-height: 18px;
-		flex-basis: 18px;
-		transform: scale(0.66);
-		transform-origin: center;
-	}
-
-	.icon-item-about :global(svg) {
-		width: 26px !important;
-		height: 26px !important;
-		max-width: 26px;
-		max-height: 26px;
-		flex-basis: 26px;
-		transform: scale(1.2);
-		transform-origin: center;
-	}
-
-	/* Material Symbols have built-in padding in their viewBox, so enlarge to match the others */
-	.icon-item-leftland :global(svg) {
-		width: 21px !important;
-		height: 21px !important;
-		max-width: 21px;
-		max-height: 21px;
-		flex-basis: 21px;
-	}
-
-	/* Fine-tune per-brand optical size */
-	.icon-item-x :global(svg) {
-		transform: scale(0.82);
-		transform-origin: center;
-	}
-
-	.icon-item-zenn :global(svg) {
-		width: 16px !important;
-		height: 16px !important;
-		max-width: 16px;
-		max-height: 16px;
-		flex-basis: 16px;
-		transform: scale(0.88);
-		transform-origin: center;
-	}
-
-	.icon-item-speakerdeck :global(svg) {
-		width: 19px !important;
-		height: 19px !important;
-		max-width: 19px;
-		max-height: 19px;
-		flex-basis: 19px;
 	}
 
 	.sr-only {
