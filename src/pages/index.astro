@@ -12,6 +12,7 @@ import speakerdeckSvg from '../components/icons/speakerdeck.svg?raw';
 import youtubeSvg from '../components/icons/youtube.svg?raw';
 import zennSvg from '../components/icons/zenn.svg?raw';
 import hashnodeSvg from '../components/icons/hashnode.svg?raw';
+import leftlandSvg from '../components/icons/leftland.svg?raw';
 
 const dictionary = {
 	ja: {
@@ -26,6 +27,7 @@ const dictionary = {
 		emailLabel: 'メール',
 		githubLabel: 'GitHub',
 		aboutIconLabel: 'About',
+		leftlandLabel: 'LeftLand',
 		xLabel: 'X',
 		zennLabel: 'Zenn',
 		speakerdeckLabel: 'Speaker Deck',
@@ -46,6 +48,7 @@ const dictionary = {
 		emailLabel: 'Email',
 		githubLabel: 'GitHub',
 		aboutIconLabel: 'About',
+		leftlandLabel: 'LeftLand',
 		xLabel: 'X',
 		zennLabel: 'Zenn',
 		speakerdeckLabel: 'Speaker Deck',
@@ -100,6 +103,7 @@ const dictionary = {
 				<a class="icon-item icon-item-email" href="/email" data-i18n-aria="emailLabel" aria-label={dictionary.en.emailLabel}><Fragment set:html={emailSvg} /></a>
 				<a class="icon-item" href="https://github.com/lef237" target="_blank" rel="noreferrer" data-i18n-aria="githubLabel" aria-label={dictionary.en.githubLabel}><Fragment set:html={githubSvg} /></a>
 				<a class="icon-item icon-item-about" href="/about" data-i18n-aria="aboutIconLabel" aria-label={dictionary.en.aboutIconLabel}><Fragment set:html={aboutSvg} /></a>
+				<a class="icon-item icon-item-leftland" href="https://leftland.cc/" target="_blank" rel="noreferrer" data-i18n-aria="leftlandLabel" aria-label={dictionary.en.leftlandLabel}><Fragment set:html={leftlandSvg} /></a>
 				<a class="icon-item icon-item-x" href="https://x.com/lef237" target="_blank" rel="noreferrer" data-i18n-aria="xLabel" aria-label={dictionary.en.xLabel}><Fragment set:html={xSvg} /></a>
 				<a class="icon-item icon-item-zenn" href="https://zenn.dev/lef237" target="_blank" rel="noreferrer" data-i18n-aria="zennLabel" aria-label={dictionary.en.zennLabel}><Fragment set:html={zennSvg} /></a>
 				<a class="icon-item icon-item-speakerdeck" href="https://speakerdeck.com/lef237" target="_blank" rel="noreferrer" data-i18n-aria="speakerdeckLabel" aria-label={dictionary.en.speakerdeckLabel}><Fragment set:html={speakerdeckSvg} /></a>
@@ -334,6 +338,15 @@ const dictionary = {
 		flex-basis: 26px;
 		transform: scale(1.2);
 		transform-origin: center;
+	}
+
+	/* Material Symbols have built-in padding in their viewBox, so enlarge to match the others */
+	.icon-item-leftland :global(svg) {
+		width: 21px !important;
+		height: 21px !important;
+		max-width: 21px;
+		max-height: 21px;
+		flex-basis: 21px;
 	}
 
 	/* Fine-tune per-brand optical size */
