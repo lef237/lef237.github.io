@@ -4,11 +4,46 @@ import { Content, frontmatter } from '../content/about.md';
 
 const title = frontmatter.title ?? 'About | lef237';
 const description = frontmatter.description ?? 'lef237 profile';
+
+// Social brand icons are based on Simple Icons: https://simpleicons.org
+import githubSvg from '../components/icons/github.svg?raw';
+import xSvg from '../components/icons/x.svg?raw';
+import hatenablogSvg from '../components/icons/hatenablog.svg?raw';
+import emailSvg from '../components/icons/email.svg?raw';
+import noteSvg from '../components/icons/note.svg?raw';
+import speakerdeckSvg from '../components/icons/speakerdeck.svg?raw';
+import zennSvg from '../components/icons/zenn.svg?raw';
+
+// size: rendered icon size in px (same values as the homepage)
+const links = [
+	{ href: '/email', label: 'メール', svg: emailSvg, size: 15 },
+	{ href: 'https://github.com/lef237', label: 'GitHub', svg: githubSvg, size: 18 },
+	{ href: 'https://x.com/lef237', label: 'X', svg: xSvg, size: 15 },
+	{ href: 'https://zenn.dev/lef237', label: 'Zenn', svg: zennSvg, size: 16 },
+	{ href: 'https://speakerdeck.com/lef237', label: 'Speaker Deck', svg: speakerdeckSvg, size: 18 },
+	{ href: 'https://note.com/lef237', label: 'note', svg: noteSvg, size: 12 },
+	{ href: 'https://lef237.hatenablog.com/', label: 'はてなブログ', svg: hatenablogSvg, size: 18 },
+];
 ---
 
 <Layout title={title} description={description} lang="ja">
 	<main class="page">
 		<article class="card prose">
+			<header class="profile">
+				<img src="/lefzou.jpg" alt="" width="96" height="96" loading="eager" />
+				<div>
+					<h1>LEF</h1>
+					<p class="id">@lef237</p>
+					<div class="icon-links" role="group" aria-label="リンク一覧">
+						{links.map(({ href, label, svg, size }) => {
+							const isExternal = href.startsWith('http');
+							return (
+								<a href={href} target={isExternal ? '_blank' : undefined} rel={isExternal ? 'noreferrer' : undefined} aria-label={label} title={label} style={`--icon-size: ${size}px`}><Fragment set:html={svg} /></a>
+							);
+						})}
+					</div>
+				</div>
+			</header>
 			<Content />
 			<p class="back"><a href="/">Back to home</a></p>
 		</article>
@@ -33,6 +68,66 @@ const description = frontmatter.description ?? 'lef237 profile';
 		border-radius: 20px;
 		padding: 32px;
 		box-shadow: 0 2px 14px rgba(28, 54, 94, 0.05);
+	}
+
+	.profile {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 20px;
+		align-items: center;
+		margin-bottom: 24px;
+	}
+
+	.profile img {
+		border-radius: 999px;
+		object-fit: cover;
+		border: 2px solid #e9eff9;
+	}
+
+	.prose .profile h1 {
+		margin: 0;
+		line-height: 1.1;
+	}
+
+	.prose .profile .id {
+		margin: 2px 0 12px;
+		font-size: 0.92rem;
+		font-weight: 600;
+		color: #63728d;
+	}
+
+	.icon-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	.prose .icon-links a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 38px;
+		height: 38px;
+		color: #33415c;
+		background: #f3f7fd;
+		border: 1px solid #e1e9f6;
+		border-radius: 50%;
+		text-decoration: none;
+		transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.18s ease, box-shadow 0.24s ease;
+	}
+
+	.prose .icon-links a:hover {
+		color: #33415c;
+		background: #ecf2fb;
+		transform: translateY(-2px);
+		box-shadow: 0 6px 14px rgba(28, 54, 94, 0.12);
+	}
+
+	.icon-links :global(svg) {
+		display: block;
+		width: var(--icon-size);
+		height: var(--icon-size);
+		fill: currentColor;
 	}
 
 	.prose :global(h1),
@@ -124,6 +219,89 @@ const description = frontmatter.description ?? 'lef237 profile';
 		margin-top: 2px;
 	}
 
+	/* Software：作品をカードのグリッドで並べる（Markdownのリスト構造はそのまま） */
+	.prose > :global(h2#software + p + ul) {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		gap: 14px;
+	}
+
+	.prose > :global(h2#software + p + ul) > :global(li) {
+		display: flex;
+		flex-direction: column;
+		margin: 0;
+		padding: 16px 18px;
+		background: #fbfcff;
+		border: 1px solid #e7eef8;
+		border-radius: 14px;
+		transition: border-color 0.18s ease, box-shadow 0.18s ease;
+	}
+
+	.prose > :global(h2#software + p + ul) > :global(li:hover) {
+		border-color: #d3dff2;
+		box-shadow: 0 4px 14px rgba(28, 54, 94, 0.07);
+	}
+
+	/* 日本語を文節で折り返し、行頭の短い切れ端を減らす */
+	.prose > :global(h2#software + p + ul) > :global(li) {
+		word-break: auto-phrase;
+		text-wrap: pretty;
+	}
+
+	/* タイトルは下線なしの太字。hover時だけ下線を出す */
+	.prose > :global(h2#software + p + ul) > :global(li) > :global(a) {
+		text-decoration-color: transparent;
+	}
+
+	.prose > :global(h2#software + p + ul) > :global(li) > :global(a:hover) {
+		text-decoration: underline;
+		text-decoration-color: #97a7c1;
+	}
+
+	.prose > :global(h2#software + p + ul) > :global(li) > :global(ul) {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		margin-top: 6px;
+	}
+
+	/* 説明の項目どうしは行間より広く離して、文のまとまりを見せる */
+	.prose > :global(h2#software + p + ul) > :global(li) > :global(ul) > :global(li) {
+		line-height: 1.65;
+	}
+
+	.prose > :global(h2#software + p + ul) > :global(li) > :global(ul) > :global(li + li) {
+		margin-top: 6px;
+	}
+
+	/* リンク行はチップにして、カードの下端にそろえる */
+	.prose > :global(h2#software + p + ul) > :global(li) > :global(ul) > :global(li:last-child:has(> a)) {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+		margin-top: auto;
+		padding-top: 12px;
+	}
+
+	.prose > :global(h2#software + p + ul) > :global(li) > :global(ul) > :global(li:last-child:has(> a)) > :global(a) {
+		display: inline-block;
+		padding: 1px 10px;
+		font-size: 0.8rem;
+		line-height: 1.7;
+		color: #3f4f69;
+		background: #eef3fb;
+		border: 1px solid #dde6f4;
+		border-radius: 999px;
+		text-decoration: none;
+		transition: background-color 0.18s ease, border-color 0.18s ease;
+	}
+
+	.prose > :global(h2#software + p + ul) > :global(li) > :global(ul) > :global(li:last-child:has(> a)) > :global(a:hover) {
+		color: #2f3b52;
+		background: #e3ebf8;
+		border-color: #cfdcf0;
+	}
+
 	.prose :global(a),
 	.back a {
 		color: #3f4f69;
@@ -174,6 +352,15 @@ const description = frontmatter.description ?? 'lef237 profile';
 		.card {
 			padding: 20px;
 			border-radius: 16px;
+		}
+
+		.profile {
+			gap: 14px;
+		}
+
+		.profile img {
+			width: 72px;
+			height: 72px;
 		}
 
 		.prose :global(h2) {

@@ -3,16 +3,11 @@ title: About | lef237
 description: lef237 の自己紹介
 ---
 
-# About
-
 LEF（レフ）という名前で活動しています。IDは`@lef237`です。
 
-- GitHub：[lef237](https://github.com/lef237)
-- Zenn：[lef237](https://zenn.dev/lef237)
-- X：[@lef237](https://x.com/lef237)
-- Mail：`lef237k5☆gmail.com`（☆→@）
-
 ご連絡はメールでお願いします。基本的にメールのみを確認しています🙏
+
+- Mail：`lef237k5☆gmail.com`（☆→@）
 
 ## Interests
 
@@ -44,13 +39,14 @@ Godotを使ったゲーム開発もしています。最近は3Dグラフィッ�
   - Wikipediaにはランキングのページがないので、ランキングを表示するCLIツールを作りました
   - 記事を選択すると、概要とリンクが表示されるつくりになっています
 - [GitHub Prevent Thumbs Down Click](https://chromewebstore.google.com/detail/github-prevent-thumbs-dow/nmggnnjdmonldppjempcpgkpblodkolk)
-  - [GitHub](https://github.com/lef237/github-prevent-thumbs-down-click) / [記事](https://lef237.hatenablog.com/entry/2024/04/26/113048)
+  - GitHubで👎を誤ってクリックしないようにするChrome拡張機能です
+  - [GitHub](https://github.com/lef237/github-prevent-thumbs-down-click) [記事](https://lef237.hatenablog.com/entry/2024/04/26/113048)
 - [lef237's homepage](https://lef237.github.io/)
   - ホームページです。現在の技術スタックはAstroですが、将来は変わるかも
   - [GitHub](https://github.com/lef237/lef237.github.io)
 - [Audio Visualizer](https://lef237.github.io/audio-visualizer/)
   - AudioファイルをVisualizeできるChillなアプリです
-  - [GitHub](https://github.com/lef237/audio-visualizer) / [記事](https://lef237.hatenablog.com/entry/2024/08/05/202832)
+  - [GitHub](https://github.com/lef237/audio-visualizer) [記事](https://lef237.hatenablog.com/entry/2024/08/05/202832)
 - [MindfulDo](https://mindfuldo.vercel.app/)
   - Stay FocusでSuper Coolなタスク管理アプリです（？）
   - [記事](https://lef237.hatenablog.com/entry/2025/01/01/213522)
@@ -60,7 +56,7 @@ Godotを使ったゲーム開発もしています。最近は3Dグラフィッ�
   - [GitHub](https://github.com/lef237/inline_partial)
 - [ctj](https://crates.io/crates/ctj)
   - CSVをJSONに変換するツールです。Rust製で、Cargoを使ってインストールできます
-  - [GitHub](https://github.com/lef237/ctj) / [記事](https://lef237.hatenablog.com/entry/2025/07/17/205616)
+  - [GitHub](https://github.com/lef237/ctj) [記事](https://lef237.hatenablog.com/entry/2025/07/17/205616)
 - [One-Time Editor](https://github.com/lef237/one-time-editor)
   - ショートカットキーですぐに呼び出せるエディタです
   - チャットの送信前などに気軽に使えるため、誤送信を防げて便利です
@@ -72,7 +68,7 @@ Godotを使ったゲーム開発もしています。最近は3Dグラフィッ�
 - [Muga](https://github.com/lef237/muga)
   - オリジナルのプログラミング言語を作っています
   - イミュータブルを基本にしていて、シンプルで読みやすい言語を目指しています
-  - [紹介記事](https://lef237.hatenablog.com/entry/2026/04/19/143844) / [v0.1.0 リリース記事](https://lef237.hatenablog.com/entry/2026/04/30/184842)
+  - [紹介記事](https://lef237.hatenablog.com/entry/2026/04/19/143844) [v0.1.0 リリース記事](https://lef237.hatenablog.com/entry/2026/04/30/184842)
 - [three-rb](https://github.com/lef237/three-rb)
   - Rubyのコードで3Dグラフィックスを作成できるライブラリです
   - 実際にブラウザ上で動かせます。GitHub PagesやCloudflare等にデプロイも可能です
