@@ -26,65 +26,65 @@ Godotを使ったゲーム開発もしています。最近は3Dグラフィッ�
 
 開発したアプリ・ライブラリを紹介します。公開中の作品から一部を抜粋しています。
 
-- [引用箱 QuoteList](https://github.com/lef237/quotelist)
+- 📚 [引用箱 QuoteList](https://github.com/lef237/quotelist)
   - 色んな引用を楽しめるようにしました。また、RailsとReactの組み合わせも工夫しました
   - [アプリ](https://quotelist.fly.dev/) [記事](https://lef237.hatenablog.com/entry/2023/04/16/112002)
-- [please-delete-me](https://github.com/lef237/please-delete-me)
+- 🐬 [please-delete-me](https://github.com/lef237/please-delete-me)
   - アニメーションの面白さやストーリー性にこだわりました
   - [npm](https://www.npmjs.com/package/please-delete-me) [記事](https://lef237.hatenablog.com/entry/2022/12/17/093055)
-- [timer.team](https://timer.team/)
+- ⏱️ [timer.team](https://timer.team/)
   - 気軽に使えて、リモートワークで共有しやすいタイマーです
   - [記事](https://zenn.dev/lef237/articles/8e4eb3112928d6)
-- [go-wikipedia-popular-articles](https://github.com/lef237/go-wikipedia-popular-articles)
+- 📈 [go-wikipedia-popular-articles](https://github.com/lef237/go-wikipedia-popular-articles)
   - Wikipediaにはランキングのページがないので、ランキングを表示するCLIツールを作りました
   - 記事を選択すると、概要とリンクが表示されるつくりになっています
-- [GitHub Prevent Thumbs Down Click](https://github.com/lef237/github-prevent-thumbs-down-click)
+- 🛡️ [GitHub Prevent Thumbs Down Click](https://github.com/lef237/github-prevent-thumbs-down-click)
   - GitHubで👎を誤ってクリックしないようにするChrome拡張機能です
   - [Chrome Web Store](https://chromewebstore.google.com/detail/github-prevent-thumbs-dow/nmggnnjdmonldppjempcpgkpblodkolk) [記事](https://lef237.hatenablog.com/entry/2024/04/26/113048)
-- [lef237's homepage](https://github.com/lef237/lef237.github.io)
+- 🏠 [lef237's homepage](https://github.com/lef237/lef237.github.io)
   - ホームページです。現在の技術スタックはAstroですが、将来は変わるかも
   - [サイト](https://lef237.github.io/)
-- [Audio Visualizer](https://github.com/lef237/audio-visualizer)
+- 🎧 [Audio Visualizer](https://github.com/lef237/audio-visualizer)
   - AudioファイルをVisualizeできるChillなアプリです
   - [アプリ](https://lef237.github.io/audio-visualizer/) [記事](https://lef237.hatenablog.com/entry/2024/08/05/202832)
-- [MindfulDo](https://mindfuldo.vercel.app/)
+- 🧘 [MindfulDo](https://mindfuldo.vercel.app/)
   - Stay FocusでSuper Coolなタスク管理アプリです（？）
   - [記事](https://lef237.hatenablog.com/entry/2025/01/01/213522)
-- [inline_partial](https://github.com/lef237/inline_partial)
+- 💎 [inline_partial](https://github.com/lef237/inline_partial)
   - Railsでプライベートなインラインpartialを実現できるGemです
   - 以前書いた[この記事](https://lef237.hatenablog.com/entry/2025/06/22/115045)をベースにしつつ、partialに渡るオブジェクトが単数でも複数でも対応できるようにしました
   - [RubyGems](https://rubygems.org/gems/inline_partial)
-- [ctj](https://github.com/lef237/ctj)
+- 🔄 [ctj](https://github.com/lef237/ctj)
   - CSVをJSONに変換するツールです。Rust製で、Cargoを使ってインストールできます
   - [crates.io](https://crates.io/crates/ctj) [記事](https://lef237.hatenablog.com/entry/2025/07/17/205616)
-- [One-Time Editor](https://github.com/lef237/one-time-editor)
+- 📝 [One-Time Editor](https://github.com/lef237/one-time-editor)
   - ショートカットキーですぐに呼び出せるエディタです
   - チャットの送信前などに気軽に使えるため、誤送信を防げて便利です
   - [記事](https://lef237.hatenablog.com/entry/2026/02/15/110305)
-- [clauhist](https://github.com/lef237/clauhist)
+- 📜 [clauhist](https://github.com/lef237/clauhist)
   - Claude Code・Codex・OpenCodeの履歴を、作業ディレクトリをまたいで一覧できるCLIツールです
   - 一覧からセッションを選ぶと、そのプロジェクトのディレクトリに移動して会話を再開できます
   - [crates.io](https://crates.io/crates/clauhist)
-- [Muga](https://github.com/lef237/muga)
+- 🍃 [Muga](https://github.com/lef237/muga)
   - オリジナルのプログラミング言語を作っています
   - イミュータブルを基本にしていて、シンプルで読みやすい言語を目指しています
   - [crates.io](https://crates.io/crates/muga) [紹介記事](https://lef237.hatenablog.com/entry/2026/04/19/143844) [リリース記事](https://lef237.hatenablog.com/entry/2026/04/30/184842)
-- [three-rb](https://github.com/lef237/three-rb)
+- 🧊 [three-rb](https://github.com/lef237/three-rb)
   - Rubyのコードで3Dグラフィックスを作成できるライブラリです
   - 実際にブラウザ上で動かせます。GitHub PagesやCloudflare等にデプロイも可能です
   - [Demo](https://three-rb.pages.dev/)
-- [gst](https://github.com/lef237/gst)
+- 🌿 [gst](https://github.com/lef237/gst)
   - Go言語で実装した、Gitのステータスを視覚的に表示できるTUIツールです
   - patch用のdiffを簡単にコピーできる機能もあり、便利でオススメです
   - [記事](https://lef237.hatenablog.com/entry/2026/06/05/132604)
-- [costsee](https://github.com/lef237/costsee)
+- 📊 [costsee](https://github.com/lef237/costsee)
   - Coding Agent 3種類（Codex, Claude, OpenCode）の利用制限をまとめて確認できるツールです
   - ターミナルに表示できて、自動で使用量が更新されるため便利です
   - [crates.io](https://crates.io/crates/costsee)
-- [agent-sync](https://github.com/lef237/agent-sync)
+- 🔗 [agent-sync](https://github.com/lef237/agent-sync)
   - Codex 用に配置した `AGENTS.md` や `.agents/skills/*` を、ワンコマンドで Claude Code にも適用する同期ツールです
   - dry-runの機能もあり、安全に使いつつ手間を省けます
-- [Vim Drill](https://github.com/lef237/vim-drill)
+- ⌨️ [Vim Drill](https://github.com/lef237/vim-drill)
   - Vimのコマンドを1問ずつ練習できるブラウザアプリです
   - ブラウザ上のVimエディタでテキストを編集して、お題の状態にできればクリアです。キーボードだけで操作できます
   - [アプリ](https://vim-drill.lef237.workers.dev)

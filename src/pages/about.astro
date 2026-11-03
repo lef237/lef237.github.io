@@ -232,9 +232,17 @@ const iconVars = `--icon-github: ${toDataUri(githubSvg)}; --icon-external: ${toD
 		gap: 14px;
 	}
 
+	/*
+	 * カード内は2列のグリッド。タイトル(a)と説明(ul)の位置を明示すると、
+	 * Markdownでタイトルの前に書いた絵文字（テキスト）は残りの右上のセルに自動配置される
+	 */
 	.prose > :global(h2#software + p + ul) > :global(li) {
-		display: flex;
-		flex-direction: column;
+		display: grid;
+		grid-template-columns: 1fr auto;
+		grid-template-rows: auto 1fr;
+		column-gap: 12px;
+		font-size: 1.6rem;
+		line-height: 1;
 		margin: 0;
 		padding: 16px 18px;
 		background: #fbfcff;
@@ -256,6 +264,10 @@ const iconVars = `--icon-github: ${toDataUri(githubSvg)}; --icon-external: ${toD
 
 	/* タイトルは下線なしの太字。hover時だけ下線を出す */
 	.prose > :global(h2#software + p + ul) > :global(li) > :global(a) {
+		grid-row: 1;
+		grid-column: 1;
+		align-self: center;
+		line-height: 1.5;
 		text-decoration-color: transparent;
 	}
 
@@ -287,9 +299,10 @@ const iconVars = `--icon-github: ${toDataUri(githubSvg)}; --icon-external: ${toD
 	}
 
 	.prose > :global(h2#software + p + ul) > :global(li) > :global(ul) {
+		grid-row: 2;
+		grid-column: 1 / -1;
 		display: flex;
 		flex-direction: column;
-		flex: 1;
 		margin-top: 6px;
 	}
 
