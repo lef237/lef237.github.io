@@ -24,11 +24,17 @@ const links = [
 	{ href: 'https://note.com/lef237', label: 'note', svg: noteSvg, size: 12 },
 	{ href: 'https://lef237.hatenablog.com/', label: 'はてなブログ', svg: hatenablogSvg, size: 18 },
 ];
+
+// Softwareカードのタイトル横に出す、リンク先を示すアイコン（CSSのmaskで使う）
+const toDataUri = (svg: string) => `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
+const externalSvg =
+	'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>';
+const iconVars = `--icon-github: ${toDataUri(githubSvg)}; --icon-external: ${toDataUri(externalSvg)};`;
 ---
 
 <Layout title={title} description={description} lang="ja">
 	<main class="page">
-		<article class="card prose">
+		<article class="card prose" style={iconVars}>
 			<header class="profile">
 				<img src="/lefzou.jpg" alt="" width="96" height="96" loading="eager" />
 				<div>
@@ -256,6 +262,28 @@ const links = [
 	.prose > :global(h2#software + p + ul) > :global(li) > :global(a:hover) {
 		text-decoration: underline;
 		text-decoration-color: #97a7c1;
+	}
+
+	/* タイトル横のアイコンでリンク先を示す：GitHubならGitHubアイコン、それ以外は外部リンクの矢印 */
+	.prose > :global(h2#software + p + ul) > :global(li) > :global(a::after) {
+		content: '';
+		display: inline-block;
+		width: 0.85em;
+		height: 0.85em;
+		margin-left: 0.4em;
+		vertical-align: -0.08em;
+		background-color: currentColor;
+		opacity: 0.45;
+		mask: var(--icon-external) center / contain no-repeat;
+		transition: opacity 0.18s ease;
+	}
+
+	.prose > :global(h2#software + p + ul) > :global(li) > :global(a[href^='https://github.com/']::after) {
+		mask-image: var(--icon-github);
+	}
+
+	.prose > :global(h2#software + p + ul) > :global(li) > :global(a:hover::after) {
+		opacity: 0.8;
 	}
 
 	.prose > :global(h2#software + p + ul) > :global(li) > :global(ul) {
