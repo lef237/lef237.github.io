@@ -49,7 +49,7 @@ Godotを使ったゲーム開発もしています。最近は3Dグラフィッ�
   - GitHubは[こちら](https://github.com/lef237/github-prevent-thumbs-down-click)
   - 詳細は[こちら](https://lef237.hatenablog.com/entry/2024/04/26/113048)
 - [lef237's homepage](https://lef237.github.io/)
-  - ホームページです。現在の技術スタックはRemix SPAですが、将来は変わるかも
+  - ホームページです。現在の技術スタックはAstroですが、将来は変わるかも
   - GitHubは[こちら](https://github.com/lef237/lef237.github.io)
 - [Audio Visualizer](https://lef237.github.io/audio-visualizer/)
   - AudioファイルをVisualizeできるChillなアプリです
@@ -70,10 +70,15 @@ Godotを使ったゲーム開発もしています。最近は3Dグラフィッ�
   - ショートカットキーですぐに呼び出せるエディタです
   - チャットの送信前などに気軽に使えるため、誤送信を防げて便利です
   - 詳細は[こちら](https://lef237.hatenablog.com/entry/2026/02/15/110305)
+- [clauhist: Browse Claude Code history across working directories](https://github.com/lef237/clauhist)
+  - Claude Code・Codex・OpenCodeの履歴を、作業ディレクトリをまたいで一覧できるCLIツールです
+  - 一覧からセッションを選ぶと、そのプロジェクトのディレクトリに移動して会話を再開できます
+  - crates.ioは[こちら](https://crates.io/crates/clauhist)
 - [Muga: A quiet programming language](https://github.com/lef237/muga)
   - オリジナルのプログラミング言語を作っています
   - イミュータブルを基本にしていて、シンプルで読みやすい言語を目指しています
   - 紹介記事は[こちら](https://lef237.hatenablog.com/entry/2026/04/19/143844)
+  - v0.1.0のリリース記事は[こちら](https://lef237.hatenablog.com/entry/2026/04/30/184842)
 - [three-rb: Ruby 3D Library](https://github.com/lef237/three-rb)
   - Rubyのコードで3Dグラフィックスを作成できるライブラリです
   - 実際にブラウザ上で動かせます。GitHub PagesやCloudflare等にデプロイも可能です
@@ -81,6 +86,7 @@ Godotを使ったゲーム開発もしています。最近は3Dグラフィッ�
 - [gst: Read-only Git status visualizer](https://github.com/lef237/gst)
   - Go言語で実装した、Gitのステータスを視覚的に表示できるTUIツールです
   - patch用のdiffを簡単にコピーできる機能もあり、便利でオススメです
+  - 紹介記事は[こちら](https://lef237.hatenablog.com/entry/2026/06/05/132604)
 - [costsee](https://github.com/lef237/costsee)
   - Coding Agent 3種類（Codex, Claude, OpenCode）の利用制限をまとめて確認できるツールです
   - ターミナルに表示できて、自動で使用量が更新されるため便利です
@@ -88,6 +94,10 @@ Godotを使ったゲーム開発もしています。最近は3Dグラフィッ�
 - [agent-sync](https://github.com/lef237/agent-sync)
   - Codex 用に配置した `AGENTS.md` や `.agents/skills/*` を、ワンコマンドで Claude Code にも適用する同期ツールです
   - dry-runの機能もあり、安全に使いつつ手間を省けます
+- [Vim Drill](https://vim-drill.lef237.workers.dev)
+  - Vimのコマンドを1問ずつ練習できるブラウザアプリです
+  - ブラウザ上のVimエディタでテキストを編集して、お題の状態にできればクリアです。キーボードだけで操作できます
+  - GitHubは[こちら](https://github.com/lef237/vim-drill)
 
 ## OSS
 
