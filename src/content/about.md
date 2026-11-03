@@ -109,6 +109,12 @@ OSS活動の一部を抜粋して並べています。
   - [Release v7.0.0: ECMAScript 2025サポート、イテレータとジェネレータ · asciidwango/js-primer · GitHub](https://github.com/asciidwango/js-primer/releases/tag/v7.0.0)
 - GitHub - withastro/docs: Astro documentation
   - [i18n(ja): update installation steps in `1-setup/2.mdx` by lef237 · Pull Request #12054 · withastro/docs · GitHub](https://github.com/withastro/docs/pull/12054)
+- GitHub - omacom/omarchy
+  - [Make Japanese input work out of the box (JIS defaults + omarchy setup japanese) by lef237 · Pull Request #13327 · omacom/omarchy · GitHub](https://github.com/omacom/omarchy/pull/13327)
+  - 日本語入力とJISキーボードの設定を簡単にするPRです。入力まわりの他のPRとあわせて、以下のPRに統合されました
+  - [Unify input methods with installer keyboard selection by dhh · Pull Request #14433 · omacom/omarchy · GitHub](https://github.com/omacom/omarchy/pull/14433)
+- GitHub - togatoga/karukan
+  - [feat(engine): Ctrl+M で確定できるようにする by lef237 · Pull Request #149 · togatoga/karukan · GitHub](https://github.com/togatoga/karukan/pull/149)
 
 ## Presentations
 
@@ -136,6 +142,10 @@ OSS活動の一部を抜粋して並べています。
 - 人生で初めてRubyGemをリリースした話
   - TokyuRuby会議16で登壇しました
   - [Speaker Deck](https://speakerdeck.com/lef237/ren-sheng-dechu-meterubygemworirisusitahua)
+- JIS keyboard support in Omarchy
+  - Omarchy Tokyo Nightで登壇しました
+  - [Speaker Deck](https://speakerdeck.com/lef237/jis-keyboard-support-in-omarchy)
+  - [Omarchy Tokyo Night - connpass](https://omarchy-tokyo.connpass.com/event/407638/)
 
 ## Award
 
