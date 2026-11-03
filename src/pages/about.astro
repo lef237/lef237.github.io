@@ -48,10 +48,11 @@ const description = frontmatter.description ?? 'lef237 profile';
 	}
 
 	.prose :global(h2) {
-		margin: 34px 0 12px;
-		padding-top: 22px;
-		border-top: 1px solid #ecf1f9;
-		font-size: 1.2rem;
+		margin: 52px 0 16px;
+		padding: 2px 0 2px 12px;
+		border-left: 4px solid #8fa9d8;
+		font-size: 1.4rem;
+		letter-spacing: 0.01em;
 	}
 
 	.prose :global(h3) {
@@ -83,6 +84,44 @@ const description = frontmatter.description ?? 'lef237 profile';
 	.prose :global(li > ol) {
 		margin-top: 8px;
 		margin-bottom: 10px;
+	}
+
+	/* 子リストを持つ項目（作品名・発表タイトルなど）を見出しのように強調する */
+	.prose > :global(ul:has(> li > ul)) {
+		padding-left: 0;
+		list-style: none;
+	}
+
+	.prose > :global(ul) > :global(li:has(> ul)) {
+		font-weight: 650;
+		color: #273143;
+	}
+
+	.prose > :global(ul) > :global(li:has(> ul) + li) {
+		margin-top: 20px;
+	}
+
+	.prose > :global(ul) > :global(li:has(> ul)) > :global(a) {
+		color: #273143;
+		font-size: 1.05rem;
+	}
+
+	/* 説明行は小さく・薄くして親項目との差をつける */
+	.prose > :global(ul) > :global(li) > :global(ul) {
+		margin: 4px 0 0;
+		padding-left: 0;
+		list-style: none;
+		font-weight: 400;
+	}
+
+	.prose > :global(ul) > :global(li) > :global(ul) > :global(li) {
+		font-size: 0.93rem;
+		line-height: 1.75;
+		color: #66748c;
+	}
+
+	.prose > :global(ul) > :global(li) > :global(ul) > :global(li + li) {
+		margin-top: 2px;
 	}
 
 	.prose :global(a),
@@ -138,8 +177,8 @@ const description = frontmatter.description ?? 'lef237 profile';
 		}
 
 		.prose :global(h2) {
-			margin-top: 28px;
-			padding-top: 18px;
+			margin-top: 40px;
+			font-size: 1.25rem;
 		}
 	}
 </style>
